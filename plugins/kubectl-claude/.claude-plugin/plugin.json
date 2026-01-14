@@ -1,0 +1,18 @@
+{
+  "name": "kubectl-claude",
+  "description": "AI-powered multi-cluster Kubernetes management. Discover clusters, check health, analyze RBAC, get pods/deployments/services, and troubleshoot issues across all your Kubernetes clusters.",
+  "version": "0.1.0",
+  "author": {
+    "name": "KubeStellar",
+    "url": "https://github.com/kubestellar/kubectl-claude"
+  },
+  "repository": "https://github.com/kubestellar/kubectl-claude",
+  "keywords": ["kubernetes", "k8s", "multi-cluster", "rbac", "kubectl", "devops", "infrastructure"],
+  "mcpServers": {
+    "kubectl-claude": {
+      "command": "kubectl-claude",
+      "args": ["--mcp-server"],
+      "description": "Multi-cluster Kubernetes MCP server with 16 tools for cluster management and RBAC analysis"
+    }
+  }
+}

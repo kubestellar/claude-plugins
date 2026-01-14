@@ -1,0 +1,21 @@
+{
+  "name": "kubestellar",
+  "description": "KubeStellar plugins for Claude Code - multi-cluster Kubernetes management tools",
+  "owner": {
+    "name": "KubeStellar",
+    "email": "kubestellar-dev@googlegroups.com",
+    "url": "https://kubestellar.io"
+  },
+  "plugins": [
+    {
+      "name": "kubectl-claude",
+      "source": "./plugins/kubectl-claude",
+      "description": "AI-powered multi-cluster Kubernetes management with RBAC analysis",
+      "version": "0.1.0",
+      "author": {
+        "name": "KubeStellar"
+      },
+      "keywords": ["kubernetes", "multi-cluster", "rbac", "kubectl", "k8s"]
+    }
+  ]
+}
