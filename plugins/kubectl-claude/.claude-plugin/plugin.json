@@ -10,7 +10,7 @@
   "keywords": ["kubernetes", "k8s", "multi-cluster", "rbac", "kubectl", "devops", "infrastructure"],
   "mcpServers": {
     "kubectl-claude": {
-      "command": "kubectl-claude",
+      "command": "/opt/homebrew/bin/kubectl-claude",
       "args": ["--mcp-server"],
       "description": "Multi-cluster Kubernetes MCP server with 16 tools for cluster management and RBAC analysis"
     }
