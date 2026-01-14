@@ -1,7 +1,7 @@
 {
   "name": "kubectl-claude",
   "description": "AI-powered multi-cluster Kubernetes management. Discover clusters, check health, analyze RBAC, get pods/deployments/services, and troubleshoot issues across all your Kubernetes clusters.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "KubeStellar",
     "url": "https://github.com/kubestellar/kubectl-claude"
