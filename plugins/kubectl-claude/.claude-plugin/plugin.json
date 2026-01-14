@@ -1,7 +1,7 @@
 {
   "name": "kubectl-claude",
   "description": "AI-powered multi-cluster Kubernetes management. Discover clusters, check health, analyze RBAC, get pods/deployments/services, and troubleshoot issues across all your Kubernetes clusters.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "KubeStellar",
     "url": "https://github.com/kubestellar/kubectl-claude"
@@ -12,7 +12,29 @@
     "kubectl-claude": {
       "command": "/opt/homebrew/bin/kubectl-claude",
       "args": ["--mcp-server"],
-      "description": "Multi-cluster Kubernetes MCP server with 16 tools for cluster management and RBAC analysis"
+      "description": "Multi-cluster Kubernetes MCP server with 22 tools for cluster management, diagnostics, and RBAC analysis"
+    }
+  },
+  "skills": {
+    "k8s-health": {
+      "description": "Check health of all Kubernetes clusters",
+      "prompt": "Use the kubectl-claude MCP tools to check the health of all available Kubernetes clusters. List the clusters first, then check the health status of each one. Summarize any issues found."
+    },
+    "k8s-issues": {
+      "description": "Find issues across Kubernetes clusters",
+      "prompt": "Use the kubectl-claude MCP tools to find all issues across Kubernetes clusters. Check for: pod issues (CrashLoopBackOff, ImagePullBackOff, OOMKilled, pending), deployment issues (stuck rollouts, unavailable replicas), and warning events. Provide a summary of all problems found with recommended actions."
+    },
+    "k8s-analyze": {
+      "description": "Analyze a Kubernetes namespace",
+      "prompt": "Use the kubectl-claude MCP tools to perform a comprehensive analysis of a Kubernetes namespace. Ask the user which namespace to analyze if not specified. Use the analyze_namespace tool and provide insights on workloads, resource usage, and potential issues."
+    },
+    "k8s-security": {
+      "description": "Check for security issues in Kubernetes",
+      "prompt": "Use the kubectl-claude MCP tools to check for security issues across all namespaces. Look for: privileged containers, containers running as root, host network/PID/IPC usage, and missing resource limits. Provide a security report with severity levels and remediation recommendations."
+    },
+    "k8s-rbac": {
+      "description": "Analyze RBAC permissions for a subject",
+      "prompt": "Use the kubectl-claude MCP tools to analyze RBAC permissions. Ask the user for the subject (user, group, or service account) to analyze. Use analyze_subject_permissions to show all roles, bindings, and effective permissions. Highlight any overly permissive access."
     }
   }
 }
