@@ -8,14 +8,14 @@
   },
   "plugins": [
     {
-      "name": "kubectl-claude",
-      "source": "./plugins/kubectl-claude",
-      "description": "AI-powered multi-cluster Kubernetes management with RBAC analysis",
-      "version": "0.2.2",
+      "name": "klaude",
+      "source": "./plugins/klaude",
+      "description": "AI-powered multi-cluster Kubernetes management with RBAC analysis, diagnostics, and upgrade management",
+      "version": "0.6.0",
       "author": {
         "name": "KubeStellar"
       },
-      "keywords": ["kubernetes", "multi-cluster", "rbac", "kubectl", "k8s"]
+      "keywords": ["kubernetes", "multi-cluster", "rbac", "kubectl", "k8s", "upgrades", "diagnostics"]
     }
   ]
 }

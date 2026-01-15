@@ -1,4 +1,4 @@
-# kubectl-claude
+# klaude
 
 AI-powered multi-cluster Kubernetes management for Claude Code.
 
@@ -67,14 +67,14 @@ AI-powered multi-cluster Kubernetes management for Claude Code.
 
 ## Prerequisites
 
-Install kubectl-claude binary:
+Install klaude binary:
 
 ```bash
 # macOS (Homebrew)
-brew install kubestellar/tap/kubectl-claude
+brew install kubestellar/tap/klaude
 
 # Or download from releases
-# https://github.com/kubestellar/kubectl-claude/releases
+# https://github.com/kubestellar/klaude/releases
 ```
 
 ## Example Usage
@@ -94,5 +94,5 @@ Or use slash commands:
 
 ## Links
 
-- [GitHub Repository](https://github.com/kubestellar/kubectl-claude)
+- [GitHub Repository](https://github.com/kubestellar/klaude)
 - [KubeStellar](https://kubestellar.io)
