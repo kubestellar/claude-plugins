@@ -1,7 +1,7 @@
 {
   "name": "kubectl-claude",
   "description": "AI-powered multi-cluster Kubernetes management. Discover clusters, check health, analyze RBAC, manage OPA Gatekeeper policies, and troubleshoot issues across all your Kubernetes clusters.",
-  "version": "0.4.0",
+  "version": "0.4.3",
   "author": {
     "name": "KubeStellar",
     "url": "https://github.com/kubestellar/kubectl-claude"
