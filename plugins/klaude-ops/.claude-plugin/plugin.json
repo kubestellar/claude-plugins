@@ -1,0 +1,18 @@
+{
+  "name": "klaude-ops",
+  "description": "Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks. Find pod issues, security misconfigurations, and analyze permissions across all your clusters.",
+  "version": "0.7.0",
+  "author": {
+    "name": "KubeStellar",
+    "url": "https://github.com/kubestellar/klaude"
+  },
+  "repository": "https://github.com/kubestellar/klaude",
+  "keywords": ["kubernetes", "k8s", "multi-cluster", "rbac", "diagnostics", "security", "devops", "infrastructure", "gatekeeper", "opa"],
+  "mcpServers": {
+    "klaude-ops": {
+      "command": "/opt/homebrew/bin/klaude-ops",
+      "args": ["--mcp-server"],
+      "description": "Multi-cluster Kubernetes diagnostics MCP server with tools for finding pod issues, security checks, RBAC analysis, and OPA Gatekeeper policy management"
+    }
+  }
+}

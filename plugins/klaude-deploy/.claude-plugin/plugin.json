@@ -1,0 +1,18 @@
+{
+  "name": "klaude-deploy",
+  "description": "App-centric multi-cluster deployment and operations. Deploy apps, aggregate logs, check status, and sync from git across all your Kubernetes clusters - working with apps, not clusters.",
+  "version": "0.7.0",
+  "author": {
+    "name": "KubeStellar",
+    "url": "https://github.com/kubestellar/klaude"
+  },
+  "repository": "https://github.com/kubestellar/klaude",
+  "keywords": ["kubernetes", "k8s", "multi-cluster", "deployment", "gitops", "devops", "logs", "app-centric"],
+  "mcpServers": {
+    "klaude-deploy": {
+      "command": "/opt/homebrew/bin/klaude-deploy",
+      "args": ["--mcp-server"],
+      "description": "App-centric multi-cluster deployment MCP server with tools for deploying apps, aggregating logs, smart placement (GPU/CPU/memory), and GitOps (sync from git, drift detection)"
+    }
+  }
+}
