@@ -8,14 +8,24 @@
   },
   "plugins": [
     {
-      "name": "klaude",
-      "source": "./plugins/klaude",
-      "description": "AI-powered multi-cluster Kubernetes management with RBAC analysis, diagnostics, and upgrade management",
-      "version": "0.6.0",
+      "name": "klaude-ops",
+      "source": "./plugins/klaude-ops",
+      "description": "Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks",
+      "version": "0.7.0",
       "author": {
         "name": "KubeStellar"
       },
-      "keywords": ["kubernetes", "multi-cluster", "rbac", "kubectl", "k8s", "upgrades", "diagnostics"]
+      "keywords": ["kubernetes", "multi-cluster", "rbac", "diagnostics", "security", "gatekeeper", "opa"]
+    },
+    {
+      "name": "klaude-deploy",
+      "source": "./plugins/klaude-deploy",
+      "description": "App-centric multi-cluster deployment and operations with GitOps support",
+      "version": "0.7.0",
+      "author": {
+        "name": "KubeStellar"
+      },
+      "keywords": ["kubernetes", "multi-cluster", "deployment", "gitops", "app-centric"]
     }
   ]
 }
