@@ -1,6 +1,6 @@
-# klaude
+# klaude-ops
 
-AI-powered multi-cluster Kubernetes management for Claude Code.
+Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks for Claude Code.
 
 ## Features
 
@@ -62,16 +62,12 @@ AI-powered multi-cluster Kubernetes management for Claude Code.
 | `/k8s-analyze` | Comprehensive namespace analysis |
 | `/k8s-audit-kubeconfig` | Audit and cleanup kubeconfig |
 | `/k8s-ownership` | Manage ownership tracking with OPA Gatekeeper |
-| `/k8s-upgrade-check` | Check for available upgrades |
-| `/k8s-upgrade` | Interactive cluster upgrade workflow |
 
-## Prerequisites
-
-Install klaude binary:
+## Installation
 
 ```bash
 # macOS (Homebrew)
-brew install kubestellar/tap/klaude
+brew install kubestellar/tap/klaude-ops
 
 # Or download from releases
 # https://github.com/kubestellar/klaude/releases
@@ -84,13 +80,13 @@ Once installed, you can ask Claude:
 - "List all my Kubernetes clusters"
 - "Show me pods that aren't running in the production namespace"
 - "What permissions does the admin service account have?"
-- "Check for available cluster upgrades"
-- "What operators need updating?"
-- "Upgrade my OpenShift cluster to 4.14.5"
+- "Check for security issues across my clusters"
+- "Find pods without resource limits"
 
-Or use slash commands:
-- `/k8s-upgrade-check` - Check all upgrade sources
-- `/k8s-upgrade` - Start an interactive upgrade workflow
+## Related
+
+- **klaude-deploy**: App-centric multi-cluster deployment and operations
+- **kubernetes-mcp-server**: Core Kubernetes operations (pods, deployments, helm)
 
 ## Links
 
