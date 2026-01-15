@@ -96,6 +96,25 @@ User: Are my clusters in sync with git?
   - staging: Deployment/api has extra replicas
 ```
 
+## Allow Tools Without Prompts
+
+To avoid permission prompts for each tool call:
+
+```
+/allowed-tools add mcp__plugin_klaude-deploy_klaude-deploy__*
+```
+
+Or add to `~/.claude/settings.json`:
+```json
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_klaude-deploy_klaude-deploy__*"
+    ]
+  }
+}
+```
+
 ## Related
 
 - **klaude-ops**: Multi-cluster diagnostics, RBAC analysis, security checks

@@ -62,6 +62,8 @@ Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks for Cla
 | `/k8s-analyze` | Comprehensive namespace analysis |
 | `/k8s-audit-kubeconfig` | Audit and cleanup kubeconfig |
 | `/k8s-ownership` | Manage ownership tracking with OPA Gatekeeper |
+| `/k8s-upgrade-check` | Check for available upgrades (cluster, OLM, Helm) |
+| `/k8s-upgrade` | Guided cluster upgrade with safety checks |
 
 ## Installation
 
@@ -71,6 +73,25 @@ brew install kubestellar/tap/klaude-ops
 
 # Or download from releases
 # https://github.com/kubestellar/klaude/releases
+```
+
+## Allow Tools Without Prompts
+
+To avoid permission prompts for each tool call:
+
+```
+/allowed-tools add mcp__plugin_klaude-ops_klaude-ops__*
+```
+
+Or add to `~/.claude/settings.json`:
+```json
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_klaude-ops_klaude-ops__*"
+    ]
+  }
+}
 ```
 
 ## Example Usage
