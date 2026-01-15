@@ -14,7 +14,7 @@ Then go to `/plugin` → **Discover** tab → Install **kubectl-claude**.
 
 ## kubectl-claude Plugin
 
-AI-powered multi-cluster Kubernetes management with 23 MCP tools and 6 slash commands.
+AI-powered multi-cluster Kubernetes management with 30 MCP tools and 7 slash commands.
 
 ### Slash Commands
 
@@ -26,6 +26,7 @@ AI-powered multi-cluster Kubernetes management with 23 MCP tools and 6 slash com
 | `/k8s-security` | Security audit (privileged, root, host access) |
 | `/k8s-rbac` | Analyze RBAC permissions for a subject |
 | `/k8s-audit-kubeconfig` | Audit kubeconfig clusters and recommend cleanup |
+| `/k8s-ownership` | Set up and manage resource ownership tracking with OPA Gatekeeper |
 
 ### MCP Tools
 
@@ -67,6 +68,17 @@ AI-powered multi-cluster Kubernetes management with 23 MCP tools and 6 slash com
 | `check_security_issues` | Find privileged containers, root users, host network |
 | `analyze_namespace` | Comprehensive namespace analysis |
 | `get_warning_events` | Get only Warning events |
+| `find_resource_owners` | Find who owns/manages resources via managedFields, labels, annotations |
+
+**OPA Gatekeeper Policy Tools**
+| Tool | Description |
+|------|-------------|
+| `check_gatekeeper` | Check if OPA Gatekeeper is installed and healthy |
+| `get_ownership_policy_status` | Get ownership policy configuration and violation count |
+| `list_ownership_violations` | List resources missing required ownership labels |
+| `install_ownership_policy` | Install ownership labels policy (dryrun/warn/enforce) |
+| `set_ownership_policy_mode` | Change policy enforcement mode |
+| `uninstall_ownership_policy` | Remove the ownership policy |
 
 ### Natural Language Usage
 
