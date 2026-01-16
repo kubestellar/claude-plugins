@@ -11,7 +11,7 @@
       "name": "klaude-ops",
       "source": "./plugins/klaude-ops",
       "description": "Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "author": {
         "name": "KubeStellar"
       },
@@ -21,7 +21,7 @@
       "name": "klaude-deploy",
       "source": "./plugins/klaude-deploy",
       "description": "App-centric multi-cluster deployment and operations with GitOps support",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "author": {
         "name": "KubeStellar"
       },

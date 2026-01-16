@@ -1,7 +1,7 @@
 {
   "name": "klaude-ops",
   "description": "Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks. Find pod issues, security misconfigurations, and analyze permissions across all your clusters.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": {
     "name": "KubeStellar",
     "url": "https://github.com/kubestellar/klaude"
