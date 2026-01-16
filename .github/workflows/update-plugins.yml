@@ -1,0 +1,113 @@
+name: Update Plugin Versions
+
+on:
+  repository_dispatch:
+    types: [update-plugin-version]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to update to (e.g., v0.8.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            VERSION="${{ github.event.client_payload.version }}"
+          else
+            VERSION="${{ github.event.inputs.version }}"
+          fi
+          # Remove 'v' prefix if present
+          VERSION="${VERSION#v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Updating to version: $VERSION"
+
+      - name: Fetch commands from klaude
+        run: |
+          # Clone klaude to get command files
+          git clone --depth 1 https://github.com/kubestellar/klaude.git /tmp/klaude
+
+          # Sync klaude-deploy commands
+          if [ -d "/tmp/klaude/commands" ]; then
+            # Copy all command files, excluding klaude-ops specific ones
+            for file in /tmp/klaude/commands/*.md; do
+              filename=$(basename "$file")
+              # klaude-deploy commands (not k8s-* prefixed which are ops commands)
+              if [[ ! "$filename" =~ ^k8s- ]]; then
+                cp "$file" plugins/klaude-deploy/commands/
+                echo "Copied $filename to klaude-deploy"
+              fi
+            done
+          fi
+
+          # Clean up
+          rm -rf /tmp/klaude
+
+      - name: Update plugin versions
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+
+          # Update klaude-ops version
+          jq --arg v "$VERSION" '.version = $v' \
+            plugins/klaude-ops/.claude-plugin/plugin.json > tmp.json \
+            && mv tmp.json plugins/klaude-ops/.claude-plugin/plugin.json
+
+          # Update klaude-deploy version
+          jq --arg v "$VERSION" '.version = $v' \
+            plugins/klaude-deploy/.claude-plugin/plugin.json > tmp.json \
+            && mv tmp.json plugins/klaude-deploy/.claude-plugin/plugin.json
+
+          echo "Updated plugin versions to $VERSION"
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7.0.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            🔖 Update plugins to v${{ steps.version.outputs.version }}
+
+            Automated update triggered by klaude release.
+
+            Signed-off-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          title: "🔖 Update plugins to v${{ steps.version.outputs.version }}"
+          body: |
+            ## Automated Plugin Update
+
+            This PR was automatically created by the klaude release workflow.
+
+            **Version:** v${{ steps.version.outputs.version }}
+            **Source:** ${{ github.event.client_payload.source_repo || 'manual trigger' }}
+
+            ### Changes
+            - Updated plugin versions to v${{ steps.version.outputs.version }}
+            - Synced command files from klaude repository
+
+            ---
+            🤖 This PR was automatically generated
+          branch: update-v${{ steps.version.outputs.version }}
+          delete-branch: true
+          labels: |
+            automated
+            version-update
