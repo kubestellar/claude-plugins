@@ -1,10 +1,10 @@
-# klaude-deploy
+# kubestellar-deploy
 
 App-centric multi-cluster deployment and operations for Kubernetes.
 
 ## Vision: Single-Cluster UX for Multi-Cluster Reality
 
-Work with your **apps**, not your **clusters**. klaude-deploy automatically discovers where your apps are running and aggregates results from all clusters.
+Work with your **apps**, not your **clusters**. kubestellar-deploy automatically discovers where your apps are running and aggregates results from all clusters.
 
 ```
 Traditional Multi-Cluster UX (cluster-centric):
@@ -12,7 +12,7 @@ Traditional Multi-Cluster UX (cluster-centric):
   kubectl --context=prod-west get pods
   kubectl --context=staging get pods
 
-klaude-deploy UX (app-centric):
+kubestellar-deploy UX (app-centric):
   "Where is nginx running?"
   "Get logs from my api service"
   "Deploy my ML model to GPU clusters"
@@ -23,10 +23,10 @@ klaude-deploy UX (app-centric):
 ```bash
 # Install via Homebrew
 brew tap kubestellar/tap
-brew install klaude-deploy
+brew install kubestellar-deploy
 
 # Or download from releases
-# https://github.com/kubestellar/klaude/releases
+# https://github.com/kubestellar/kubestellar-mcp/releases
 ```
 
 ## Features
@@ -101,7 +101,7 @@ User: Are my clusters in sync with git?
 To avoid permission prompts for each tool call:
 
 ```
-/allowed-tools add mcp__plugin_klaude-deploy_klaude-deploy__*
+/allowed-tools add mcp__plugin_kubestellar-deploy_kubestellar-deploy__*
 ```
 
 Or add to `~/.claude/settings.json`:
@@ -109,7 +109,7 @@ Or add to `~/.claude/settings.json`:
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_klaude-deploy_klaude-deploy__*"
+      "mcp__plugin_kubestellar-deploy_kubestellar-deploy__*"
     ]
   }
 }
@@ -117,7 +117,7 @@ Or add to `~/.claude/settings.json`:
 
 ## Related
 
-- **klaude-ops**: Multi-cluster diagnostics, RBAC analysis, security checks
+- **kubestellar-ops**: Multi-cluster diagnostics, RBAC analysis, security checks
 - **kubernetes-mcp-server**: Core Kubernetes operations (pods, deployments, helm)
 
 ## License

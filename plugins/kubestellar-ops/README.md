@@ -1,4 +1,4 @@
-# klaude-ops
+# kubestellar-ops
 
 Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks for Claude Code.
 
@@ -69,10 +69,10 @@ Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks for Cla
 
 ```bash
 # macOS (Homebrew)
-brew install kubestellar/tap/klaude-ops
+brew install kubestellar/tap/kubestellar-ops
 
 # Or download from releases
-# https://github.com/kubestellar/klaude/releases
+# https://github.com/kubestellar/kubestellar-mcp/releases
 ```
 
 ## Allow Tools Without Prompts
@@ -80,7 +80,7 @@ brew install kubestellar/tap/klaude-ops
 To avoid permission prompts for each tool call:
 
 ```
-/allowed-tools add mcp__plugin_klaude-ops_klaude-ops__*
+/allowed-tools add mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ```
 
 Or add to `~/.claude/settings.json`:
@@ -88,7 +88,7 @@ Or add to `~/.claude/settings.json`:
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_klaude-ops_klaude-ops__*"
+      "mcp__plugin_kubestellar-ops_kubestellar-ops__*"
     ]
   }
 }
@@ -106,10 +106,10 @@ Once installed, you can ask Claude:
 
 ## Related
 
-- **klaude-deploy**: App-centric multi-cluster deployment and operations
+- **kubestellar-deploy**: App-centric multi-cluster deployment and operations
 - **kubernetes-mcp-server**: Core Kubernetes operations (pods, deployments, helm)
 
 ## Links
 
-- [GitHub Repository](https://github.com/kubestellar/klaude)
+- [GitHub Repository](https://github.com/kubestellar/kubestellar-mcp)
 - [KubeStellar](https://kubestellar.io)
