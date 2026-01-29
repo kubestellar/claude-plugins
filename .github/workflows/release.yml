@@ -204,17 +204,17 @@ jobs:
 
             ```bash
             # Install from marketplace
-            claude plugins install kubestellar/klaude-ops
-            claude plugins install kubestellar/klaude-deploy
+            claude plugins install kubestellar/kubestellar-ops
+            claude plugins install kubestellar/kubestellar-deploy
 
             # Or install from this release
-            claude plugins install https://github.com/kubestellar/claude-plugins/releases/download/${{ needs.determine-version.outputs.version }}/klaude-ops-${{ needs.determine-version.outputs.version }}.tar.gz
+            claude plugins install https://github.com/kubestellar/claude-plugins/releases/download/${{ needs.determine-version.outputs.version }}/kubestellar-ops-${{ needs.determine-version.outputs.version }}.tar.gz
             ```
 
             ### Plugins Included
 
-            - **klaude-ops** - Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks
-            - **klaude-deploy** - App-centric multi-cluster deployment with GitOps support
+            - **kubestellar-ops** - Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks
+            - **kubestellar-deploy** - App-centric multi-cluster deployment with GitOps support
 
             ### Changes
 
@@ -237,7 +237,7 @@ jobs:
           if [ "${{ needs.release.result }}" = "success" ]; then
             echo "### Install" >> $GITHUB_STEP_SUMMARY
             echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
-            echo "claude plugins install kubestellar/klaude-ops" >> $GITHUB_STEP_SUMMARY
-            echo "claude plugins install kubestellar/klaude-deploy" >> $GITHUB_STEP_SUMMARY
+            echo "claude plugins install kubestellar/kubestellar-ops" >> $GITHUB_STEP_SUMMARY
+            echo "claude plugins install kubestellar/kubestellar-deploy" >> $GITHUB_STEP_SUMMARY
             echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           fi
