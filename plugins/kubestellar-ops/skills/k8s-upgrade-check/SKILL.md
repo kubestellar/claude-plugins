@@ -1,11 +1,12 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-upgrade-check
 description: Check for available upgrades
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task
 
-Use the kubectl-claude MCP tools to check for available upgrades across Kubernetes clusters, including cluster version, OLM operators, and Helm releases.
+Use the kubestellar-ops MCP tools to check for available upgrades across Kubernetes clusters, including cluster version, OLM operators, and Helm releases.
 
 ### Workflow
 
@@ -67,4 +68,4 @@ Use the kubectl-claude MCP tools to check for available upgrades across Kubernet
 | `check_olm_operator_upgrades` | Check OLM operators for upgrades |
 | `check_helm_release_upgrades` | List Helm releases and versions |
 
-Do not use any other tools besides the kubectl-claude MCP tools.
+Do not use any other tools besides the kubestellar-ops MCP tools.

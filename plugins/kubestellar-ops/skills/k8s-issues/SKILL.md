@@ -1,11 +1,12 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-issues
 description: Find issues across Kubernetes clusters
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task
 
-Use the kubectl-claude MCP tools to find all issues across Kubernetes clusters.
+Use the kubestellar-ops MCP tools to find all issues across Kubernetes clusters.
 
 1. Use `list_clusters` to get all available clusters
 2. For each cluster, check for:
@@ -15,4 +16,4 @@ Use the kubectl-claude MCP tools to find all issues across Kubernetes clusters.
 
 3. Provide a summary of all problems found organized by cluster, with severity and recommended actions.
 
-Do not use any other tools besides the kubectl-claude MCP tools.
+Do not use any other tools besides the kubestellar-ops MCP tools.

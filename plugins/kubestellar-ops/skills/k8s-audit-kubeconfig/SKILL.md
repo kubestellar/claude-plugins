@@ -1,11 +1,12 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-audit-kubeconfig
 description: Audit kubeconfig clusters and recommend cleanup
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task
 
-Use the kubectl-claude MCP tools to audit all clusters in the user's kubeconfig.
+Use the kubestellar-ops MCP tools to audit all clusters in the user's kubeconfig.
 
 1. Use `audit_kubeconfig` to check connectivity to all configured clusters
 2. Present the results showing:
@@ -15,4 +16,4 @@ Use the kubectl-claude MCP tools to audit all clusters in the user's kubeconfig.
 
 This helps users maintain a clean kubeconfig by identifying and removing stale cluster configurations.
 
-Do not use any other tools besides the kubectl-claude MCP tools.
+Do not use any other tools besides the kubestellar-ops MCP tools.
