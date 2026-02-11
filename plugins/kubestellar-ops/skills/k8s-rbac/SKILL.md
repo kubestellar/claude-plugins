@@ -1,11 +1,12 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-rbac
 description: Analyze RBAC permissions for a subject
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task
 
-Use the kubectl-claude MCP tools to analyze RBAC permissions.
+Use the kubestellar-ops MCP tools to analyze RBAC permissions.
 
 1. Ask the user for:
    - The subject type (user, group, or serviceaccount)
@@ -21,4 +22,4 @@ Use the kubectl-claude MCP tools to analyze RBAC permissions.
    - Any overly permissive access (cluster-admin, wildcards, etc.)
    - Security recommendations
 
-Do not use any other tools besides the kubectl-claude MCP tools.
+Do not use any other tools besides the kubestellar-ops MCP tools.

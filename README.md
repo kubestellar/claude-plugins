@@ -10,16 +10,18 @@ Add the KubeStellar marketplace to Claude Code:
 /plugin marketplace add kubestellar/claude-plugins
 ```
 
-Then go to `/plugin` → **Discover** tab → Install **kubectl-claude**.
+Then go to `/plugin` → **Discover** tab → Install **kubestellar-ops** and/or **kubestellar-deploy**.
 
-## kubectl-claude Plugin
+## Plugins
 
-AI-powered multi-cluster Kubernetes management with 30 MCP tools and 7 slash commands.
+### kubestellar-ops
 
-### Slash Commands
+Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks.
 
-| Command | Description |
-|---------|-------------|
+#### Skills
+
+| Skill | Description |
+|-------|-------------|
 | `/k8s-health` | Check health of all Kubernetes clusters |
 | `/k8s-issues` | Find issues across clusters (pods, deployments, events) |
 | `/k8s-analyze` | Comprehensive namespace analysis |
@@ -27,8 +29,10 @@ AI-powered multi-cluster Kubernetes management with 30 MCP tools and 7 slash com
 | `/k8s-rbac` | Analyze RBAC permissions for a subject |
 | `/k8s-audit-kubeconfig` | Audit kubeconfig clusters and recommend cleanup |
 | `/k8s-ownership` | Set up and manage resource ownership tracking with OPA Gatekeeper |
+| `/k8s-upgrade-check` | Check for available upgrades |
+| `/k8s-upgrade` | Upgrade cluster (master and nodes) |
 
-### MCP Tools
+#### MCP Tools
 
 **Cluster Management**
 | Tool | Description |
@@ -80,6 +84,76 @@ AI-powered multi-cluster Kubernetes management with 30 MCP tools and 7 slash com
 | `set_ownership_policy_mode` | Change policy enforcement mode |
 | `uninstall_ownership_policy` | Remove the ownership policy |
 
+**Upgrade Tools**
+| Tool | Description |
+|------|-------------|
+| `detect_cluster_type` | Detect Kubernetes distribution type |
+| `get_cluster_version_info` | Get version and available upgrades |
+| `check_olm_operator_upgrades` | Check OLM operators for upgrades |
+| `check_helm_release_upgrades` | List Helm releases and versions |
+| `get_upgrade_prerequisites` | Validate upgrade readiness |
+| `trigger_openshift_upgrade` | Initiate OpenShift upgrade |
+| `get_upgrade_status` | Monitor upgrade progress |
+
+### kubestellar-deploy
+
+App-centric multi-cluster deployment and operations with GitOps support.
+
+#### Skills
+
+| Skill | Description |
+|-------|-------------|
+| `/app-status` | Show the status of an app across all clusters |
+| `/app-logs` | Get aggregated logs from an app across all clusters |
+| `/deploy` | Deploy an app to multiple clusters with smart placement |
+| `/gitops-drift` | Detect drift between git manifests and cluster state |
+| `/gitops-sync` | Sync manifests from a git repository to clusters |
+
+#### MCP Tools
+
+**App Management**
+| Tool | Description |
+|------|-------------|
+| `get_app_instances` | Find all instances of an app across clusters |
+| `get_app_status` | Get unified app status across clusters |
+| `get_app_logs` | Get aggregated logs from an app |
+| `deploy_app` | Deploy an app to clusters |
+| `scale_app` | Scale an app across clusters |
+| `patch_app` | Apply a patch to an app across clusters |
+
+**Cluster Capabilities**
+| Tool | Description |
+|------|-------------|
+| `list_cluster_capabilities` | List what each cluster can run |
+| `find_clusters_for_workload` | Find clusters matching requirements |
+
+**GitOps**
+| Tool | Description |
+|------|-------------|
+| `detect_drift` | Detect configuration drift between git and clusters |
+| `sync_from_git` | Sync manifests from git to clusters |
+| `reconcile` | Force sync clusters with git |
+| `preview_changes` | Preview what would change |
+
+**Helm**
+| Tool | Description |
+|------|-------------|
+| `helm_install` | Install or upgrade a Helm chart |
+| `helm_uninstall` | Uninstall a Helm release |
+| `helm_list` | List Helm releases |
+| `helm_rollback` | Rollback a Helm release |
+
+**Resource Management**
+| Tool | Description |
+|------|-------------|
+| `kubectl_apply` | Apply any Kubernetes manifest |
+| `delete_resource` | Delete a Kubernetes resource |
+| `add_labels` | Add labels to a resource |
+| `remove_labels` | Remove labels from a resource |
+| `kustomize_build` | Build kustomize output |
+| `kustomize_apply` | Build and apply kustomize output |
+| `kustomize_delete` | Build and delete kustomize resources |
+
 ### Natural Language Usage
 
 Once installed, ask questions like:
@@ -89,6 +163,9 @@ Once installed, ask questions like:
 - "What permissions does the admin service account have?"
 - "Show me warning events in kube-system"
 - "Audit my kubeconfig and show stale clusters"
+- "What's the status of nginx across all clusters?"
+- "Deploy this manifest to clusters with GPUs"
+- "Check for drift from my git repo"
 
 ### Allow Tools Without Prompts
 
@@ -97,7 +174,8 @@ Add to `~/.claude/settings.json`:
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_kubectl-claude_kubectl-claude__*"
+      "mcp__plugin_kubestellar-ops_kubestellar-ops__*",
+      "mcp__plugin_kubestellar-deploy_kubestellar-deploy__*"
     ]
   }
 }
@@ -105,10 +183,10 @@ Add to `~/.claude/settings.json`:
 
 ### Prerequisites
 
-Install kubectl-claude via Homebrew:
+Install kubestellar-ops and kubestellar-deploy via Homebrew:
 ```bash
 brew tap kubestellar/tap
-brew install kubectl-claude
+brew install kubestellar-ops kubestellar-deploy
 ```
 
 ## About KubeStellar

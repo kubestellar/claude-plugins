@@ -1,6 +1,7 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-ownership
 description: Set up and manage resource ownership tracking with OPA Gatekeeper
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task

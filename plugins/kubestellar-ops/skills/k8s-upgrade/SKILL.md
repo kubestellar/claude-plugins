@@ -1,6 +1,7 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-upgrade
 description: Upgrade cluster (master and nodes)
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task
@@ -134,4 +135,4 @@ Before triggering any upgrade, you MUST:
    - Workloads may experience disruption
 4. Request explicit confirmation with the exact phrase "yes-upgrade-now"
 
-Do not use any other tools besides the kubectl-claude MCP tools.
+Do not use any other tools besides the kubestellar-ops MCP tools.

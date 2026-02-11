@@ -1,11 +1,12 @@
 ---
-allowed-tools: mcp__plugin_kubectl-claude_kubectl-claude__*
+name: k8s-security
 description: Check for security issues in Kubernetes
+allowed-tools: mcp__plugin_kubestellar-ops_kubestellar-ops__*
 ---
 
 ## Your task
 
-Use the kubectl-claude MCP tools to perform a security audit across Kubernetes clusters.
+Use the kubestellar-ops MCP tools to perform a security audit across Kubernetes clusters.
 
 1. Use `list_clusters` to get all available clusters
 2. For each cluster, use `check_security_issues` to find:
@@ -21,4 +22,4 @@ Use the kubectl-claude MCP tools to perform a security audit across Kubernetes c
    - Affected workloads
    - Remediation recommendations
 
-Do not use any other tools besides the kubectl-claude MCP tools.
+Do not use any other tools besides the kubestellar-ops MCP tools.
