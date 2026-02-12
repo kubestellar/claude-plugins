@@ -2,15 +2,61 @@
 
 Official Claude Code plugin marketplace for [KubeStellar](https://kubestellar.io) - multi-cluster Kubernetes management tools.
 
+## Prerequisites
+
+Install the CLI tools via Homebrew **before** adding the plugins:
+
+```bash
+brew tap kubestellar/tap
+brew install kubestellar-ops kubestellar-deploy
+```
+
+Or download binaries from [GitHub Releases](https://github.com/kubestellar/kubestellar-mcp/releases).
+
 ## Installation
 
-Add the KubeStellar marketplace to Claude Code:
+### Step 1: Add the KubeStellar Marketplace
+
+In Claude Code, run:
 
 ```
 /plugin marketplace add kubestellar/claude-plugins
 ```
 
-Then go to `/plugin` → **Discover** tab → Install **kubestellar-ops** and/or **kubestellar-deploy**.
+### Step 2: Install the Plugins
+
+Go to `/plugin` → **Discover** tab → Install **kubestellar-ops** and/or **kubestellar-deploy**.
+
+### Step 3: Verify
+
+Run `/mcp` in Claude Code - you should see:
+
+```
+plugin:kubestellar-ops:kubestellar-ops · ✓ connected
+plugin:kubestellar-deploy:kubestellar-deploy · ✓ connected
+```
+
+### Allow Tools Without Prompts
+
+Add to `~/.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_kubestellar-ops_kubestellar-ops__*",
+      "mcp__plugin_kubestellar-deploy_kubestellar-deploy__*"
+    ]
+  }
+}
+```
+
+Or run in Claude Code:
+
+```
+/allowed-tools add mcp__plugin_kubestellar-ops_kubestellar-ops__*
+/allowed-tools add mcp__plugin_kubestellar-deploy_kubestellar-deploy__*
+```
 
 ## Updating
 
@@ -53,7 +99,7 @@ kubestellar-ops --version
 kubestellar-deploy --version
 ```
 
-### Uninstalling
+## Uninstalling
 
 To remove a plugin from Claude Code:
 
@@ -75,11 +121,21 @@ brew uninstall kubestellar-ops kubestellar-deploy
 brew untap kubestellar/tap
 ```
 
+---
+
 ## Plugins
 
 ### kubestellar-ops
 
 Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks.
+
+#### Example Usage
+
+- "List my Kubernetes clusters"
+- "Find pods with issues across all clusters"
+- "Check for security misconfigurations"
+- "What permissions does the admin service account have?"
+- "Show me warning events in kube-system"
 
 #### Skills
 
@@ -158,9 +214,19 @@ Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks.
 | `trigger_openshift_upgrade` | Initiate OpenShift upgrade |
 | `get_upgrade_status` | Monitor upgrade progress |
 
+---
+
 ### kubestellar-deploy
 
 App-centric multi-cluster deployment and operations with GitOps support.
+
+#### Example Usage
+
+- "Where is nginx running?"
+- "Get logs from my api service"
+- "Deploy my ML model to clusters with GPUs"
+- "Are my clusters in sync with git?"
+- "Scale my app to 5 replicas across all clusters"
 
 #### Skills
 
@@ -217,7 +283,9 @@ App-centric multi-cluster deployment and operations with GitOps support.
 | `kustomize_apply` | Build and apply kustomize output |
 | `kustomize_delete` | Build and delete kustomize resources |
 
-### Natural Language Usage
+---
+
+## Natural Language Usage
 
 Once installed, ask questions like:
 - "List my Kubernetes clusters"
@@ -229,28 +297,8 @@ Once installed, ask questions like:
 - "What's the status of nginx across all clusters?"
 - "Deploy this manifest to clusters with GPUs"
 - "Check for drift from my git repo"
-
-### Allow Tools Without Prompts
-
-Add to `~/.claude/settings.json`:
-```json
-{
-  "permissions": {
-    "allow": [
-      "mcp__plugin_kubestellar-ops_kubestellar-ops__*",
-      "mcp__plugin_kubestellar-deploy_kubestellar-deploy__*"
-    ]
-  }
-}
-```
-
-### Prerequisites
-
-Install kubestellar-ops and kubestellar-deploy via Homebrew:
-```bash
-brew tap kubestellar/tap
-brew install kubestellar-ops kubestellar-deploy
-```
+- "Install nginx-ingress with Helm across all clusters"
+- "Apply kustomize overlay to production"
 
 ## About KubeStellar
 
