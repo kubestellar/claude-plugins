@@ -12,6 +12,69 @@ Add the KubeStellar marketplace to Claude Code:
 
 Then go to `/plugin` → **Discover** tab → Install **kubestellar-ops** and/or **kubestellar-deploy**.
 
+## Updating
+
+### Update Plugins
+
+To update the plugins to the latest version available in the marketplace:
+
+```
+/plugin update kubestellar-ops
+/plugin update kubestellar-deploy
+```
+
+Or update all installed plugins at once:
+
+```
+/plugin update --all
+```
+
+### Update CLI Tools
+
+The plugins rely on the `kubestellar-ops` and `kubestellar-deploy` CLI tools installed via Homebrew. To upgrade them:
+
+```bash
+brew update
+brew upgrade kubestellar-ops kubestellar-deploy
+```
+
+### Check Installed Versions
+
+To see what versions you currently have installed:
+
+```
+/plugin list
+```
+
+For CLI tool versions:
+
+```bash
+kubestellar-ops --version
+kubestellar-deploy --version
+```
+
+### Uninstalling
+
+To remove a plugin from Claude Code:
+
+```
+/plugin uninstall kubestellar-ops
+/plugin uninstall kubestellar-deploy
+```
+
+To remove the marketplace:
+
+```
+/plugin marketplace remove kubestellar/claude-plugins
+```
+
+To remove the CLI tools:
+
+```bash
+brew uninstall kubestellar-ops kubestellar-deploy
+brew untap kubestellar/tap
+```
+
 ## Plugins
 
 ### kubestellar-ops
