@@ -1,7 +1,7 @@
 {
   "name": "kubestellar-deploy",
   "description": "App-centric multi-cluster deployment and operations. Deploy apps, aggregate logs, check status, and sync from git across all your Kubernetes clusters - working with apps, not clusters.",
-  "version": "0.7.1",
+  "version": "0.8.1",
   "author": {
     "name": "KubeStellar",
     "url": "https://github.com/kubestellar/kubestellar-mcp"
