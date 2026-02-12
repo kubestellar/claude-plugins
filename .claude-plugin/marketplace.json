@@ -11,7 +11,7 @@
       "name": "kubestellar-ops",
       "source": "./plugins/kubestellar-ops",
       "description": "Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks",
-      "version": "0.8.1",
+      "version": "0.8.4",
       "author": {
         "name": "KubeStellar"
       },
@@ -21,7 +21,7 @@
       "name": "kubestellar-deploy",
       "source": "./plugins/kubestellar-deploy",
       "description": "App-centric multi-cluster deployment and operations with GitOps support",
-      "version": "0.8.1",
+      "version": "0.8.4",
       "author": {
         "name": "KubeStellar"
       },

@@ -1,7 +1,7 @@
 {
   "name": "kubestellar-ops",
   "description": "Multi-cluster Kubernetes diagnostics, RBAC analysis, and security checks. Find pod issues, security misconfigurations, and analyze permissions across all your clusters.",
-  "version": "0.8.1",
+  "version": "0.8.4",
   "author": {
     "name": "KubeStellar",
     "url": "https://github.com/kubestellar/kubestellar-mcp"
